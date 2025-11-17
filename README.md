@@ -317,7 +317,7 @@ Creamos la relación
 ![img.png](img.png)
 Al ser relación M:M se crea una tabla intermedia en la base de datos y una clase en model.
 ![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+
 
 
 

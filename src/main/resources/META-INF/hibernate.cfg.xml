@@ -1,0 +1,20 @@
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3309/mydb</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">admin</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <property name="show_sql">false</property>
+
+        <mapping class="org.example.entity.Adopcion"/>
+        <mapping class="org.example.entity.Animal"/>
+        <mapping class="org.example.entity.Grupo"/>
+        <mapping class="org.example.entity.Voluntario"/>
+        <mapping class="org.example.entity.VoluntarioAnimal"/>
+        <mapping class="org.example.entity.VoluntarioGrupo"/>
+
+    </session-factory>
+</hibernate-configuration>
