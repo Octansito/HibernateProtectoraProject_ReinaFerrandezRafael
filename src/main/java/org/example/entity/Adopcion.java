@@ -1,16 +1,16 @@
 package org.example.entity;
-
-import com.sun.jdi.StringReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name="adopcion")
 public class Adopcion {
+
+
     @Id
     private Long id;
-
     @Column(nullable = false)
     private String nombreAdoptante;
     @Column (nullable = false)
@@ -22,8 +22,68 @@ public class Adopcion {
 
 
 
-    @OneToMany
-    @JoinColumn (name="id_animal")
-    private Animal idAnimal;
 
+    // RELACIÓN 1:N → Una adopción tiene muchos animales
+    @OneToMany(mappedBy = "adopcion")
+    private List<Animal> animales;
+
+    public Adopcion() {
+    }
+
+    public Adopcion(Long id, List<Animal> animales, String direccion, LocalDate fechaAdopcion, String telefono, String nombreAdoptante) {
+        this.id = id;
+        this.animales = animales;
+        this.direccion = direccion;
+        this.fechaAdopcion = fechaAdopcion;
+        this.telefono = telefono;
+        this.nombreAdoptante = nombreAdoptante;
+    }
+    // getters y setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Animal> getAnimales() {
+        return animales;
+    }
+
+    public void setAnimales(List<Animal> animales) {
+        this.animales = animales;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getNombreAdoptante() {
+        return nombreAdoptante;
+    }
+
+    public void setNombreAdoptante(String nombreAdoptante) {
+        this.nombreAdoptante = nombreAdoptante;
+    }
+
+    public LocalDate getFechaAdopcion() {
+        return fechaAdopcion;
+    }
+
+    public void setFechaAdopcion(LocalDate fechaAdopcion) {
+        this.fechaAdopcion = fechaAdopcion;
+    }
 }

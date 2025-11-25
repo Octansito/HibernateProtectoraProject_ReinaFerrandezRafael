@@ -25,8 +25,7 @@ La útlima tabla (Voluntario_Grupo) se genera a partir de la relación N:M entre
 
 
 
-
-<img width="926" height="686" alt="image" src="https://github.com/user-attachments/assets/1c9095b2-3724-4b3c-aacc-090446ecbbcf" />
+![img_4.png](img_4.png)
 
 
 
