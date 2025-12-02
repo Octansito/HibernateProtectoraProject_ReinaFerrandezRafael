@@ -1,0 +1,20 @@
+package org.example.dao;
+
+import org.example.dto.AnimalAdopcionDTO;
+import org.example.entity.Animal;
+import org.hibernate.Session;
+
+import java.util.List;
+
+public interface AnimalDAO extends GenericDAO<Animal, Long>{
+
+    // JPQL 1: animales por nombre del adoptante
+    List<AnimalAdopcionDTO> findDtoByAdoptante(Session session, String nombre);
+
+    // JPQL 2: animales atendidos por un voluntario
+    List<Animal> findByVoluntario(Session session, String dni);
+
+    // Criteria 1: ordenar animales por edad
+    List<Animal> findAllOrderByEdad(Session session);
+
+}

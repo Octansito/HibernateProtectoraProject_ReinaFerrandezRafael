@@ -22,7 +22,7 @@ public class Animal {
     @Column (nullable = false)
     private LocalDate fechaIngreso;
 
-    // RELACIÓN N:1 → Un animal pertenece a una adopción
+    // RELACIÓN N:1 --> Un animal pertenece a una adopción
     @ManyToOne
     @JoinColumn(name = "id_adopcion")
     private Adopcion adopcion;
@@ -30,7 +30,7 @@ public class Animal {
     /**
      * Lado inverso
      */
-    // Muchos animales → muchos voluntarios
+    // Muchos animales --> muchos voluntarios
     @ManyToMany(mappedBy = "animales")
     private List<Voluntario> voluntarios;
 
@@ -47,7 +47,7 @@ public class Animal {
         this.adopcion = adopcion;
         this.voluntarios = voluntarios;
     }
-    //getters and setters
+    //getters y setters
     public Long getId() {
         return id;
     }
