@@ -9,7 +9,7 @@ import java.util.List;
 public interface AnimalDAO extends GenericDAO<Animal, Long>{
 
     // JPQL 1: animales por nombre del adoptante
-    List<AnimalAdopcionDTO> findDtoByAdoptante(Session session, String nombre);
+    List<AnimalAdopcionDTO> findAnimalByAdoptante(Session session, String nombre);
 
     // JPQL 2: animales atendidos por un voluntario
     List<Animal> findByVoluntario(Session session, String dni);

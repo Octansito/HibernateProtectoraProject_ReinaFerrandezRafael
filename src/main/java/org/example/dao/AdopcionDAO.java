@@ -11,5 +11,5 @@ public interface AdopcionDAO extends GenericDAO<Adopcion, Long> {
     List<Adopcion> findConMasDe(Session session, int cantidad);
 
     // Criteria 2: ordenar adopciones por fecha
-    List<Adopcion> findAllOrderByFecha(Session session);
+    List<Adopcion> findAdopcOrderByFecha(Session session);
 }

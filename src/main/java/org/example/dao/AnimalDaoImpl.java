@@ -18,7 +18,7 @@ public class AnimalDaoImpl extends GenericDaoHibernate<Animal, Long> implements 
 
     // JPQL 1: Animales por nombre del adoptante
     @Override
-    public List<AnimalAdopcionDTO> findDtoByAdoptante(Session s, String nombre) {
+    public List<AnimalAdopcionDTO> findAnimalByAdoptante(Session s, String nombre) {
 
         String jpql = "SELECT new org.example.dto.AnimalAdopcionDTO(a.nombre, a.tipo, ad.nombreAdoptante, ad.fechaAdopcion) FROM Animal a JOIN a.adopcion ad WHERE ad.nombreAdoptante LIKE :nombre ";
 

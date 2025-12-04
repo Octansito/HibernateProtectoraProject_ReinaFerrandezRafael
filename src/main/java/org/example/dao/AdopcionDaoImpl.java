@@ -29,7 +29,7 @@ public class AdopcionDaoImpl extends GenericDaoHibernate<Adopcion, Long> impleme
 
     // Criteria 2: ordenar por fecha de adopción
     @Override
-    public List<Adopcion> findAllOrderByFecha(Session s) {
+    public List<Adopcion> findAdopcOrderByFecha(Session s) {
 
         CriteriaBuilder cb = s.getCriteriaBuilder();
         CriteriaQuery<Adopcion> cq = cb.createQuery(Adopcion.class);
