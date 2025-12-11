@@ -1,11 +1,13 @@
 package org.example.dto;
 
+import org.example.entity.AnimalTipo;
+
 import java.time.LocalDate;
 
 public class AnimalAdopcionDTO {
 
     private String nombreAnimal;
-    private String tipo;
+    private AnimalTipo tipo;
     private String nombreAdoptante;
     private LocalDate fechaAdopcion;
 
@@ -13,7 +15,7 @@ public class AnimalAdopcionDTO {
     public AnimalAdopcionDTO() {
     }
 
-    public AnimalAdopcionDTO(String nombreAnimal, String tipo, String nombreAdoptante, LocalDate fechaAdopcion) {
+    public AnimalAdopcionDTO(String nombreAnimal, AnimalTipo tipo, String nombreAdoptante, LocalDate fechaAdopcion) {
         this.nombreAnimal = nombreAnimal;
         this.tipo = tipo;
         this.nombreAdoptante = nombreAdoptante;
@@ -29,11 +31,11 @@ public class AnimalAdopcionDTO {
         this.nombreAnimal = nombreAnimal;
     }
 
-    public String getTipo() {
+    public AnimalTipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(AnimalTipo tipo) {
         this.tipo = tipo;
     }
 

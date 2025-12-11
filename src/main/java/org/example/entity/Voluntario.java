@@ -2,23 +2,29 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name="voluntario")
 public class Voluntario {
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dni")
     private String dni;
 
-    @Column (nullable = false)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
-    @Column (nullable = false)
+
+    @Column(name = "telefono", nullable = false)
     private String telefono;
-    @Column (nullable = false)
-    private String rol;
-    @Column (nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rol", nullable = false)
+    private VoluntarioRol rol;
+
+    @Column(name = "antiguedad", nullable = false)
     private int antiguedad;
 
     /**
@@ -30,17 +36,17 @@ public class Voluntario {
             joinColumns = @JoinColumn(name = "dni_voluntario"),
             inverseJoinColumns = @JoinColumn(name = "id_animal")
     )
-    private List<Animal> animales;
+    private List<Animal> animales=new ArrayList<>();
 
     public Voluntario() {}
 
-    public Voluntario(String dni, String nombre, String telefono, String rol, int antiguedad, List<Animal> animales) {
+    public Voluntario(String dni, String nombre, String telefono, VoluntarioRol rol, int antiguedad, List<Animal> animales) {
         this.dni = dni;
         this.nombre = nombre;
         this.telefono = telefono;
         this.rol = rol;
         this.antiguedad = antiguedad;
-        this.animales = animales;
+        this.animales =animales;
     }
     //getters y setters
 
@@ -68,11 +74,11 @@ public class Voluntario {
         this.telefono = telefono;
     }
 
-    public String getRol() {
+    public VoluntarioRol getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(VoluntarioRol rol) {
         this.rol = rol;
     }
 
@@ -90,5 +96,17 @@ public class Voluntario {
 
     public void setAnimales(List<Animal> animales) {
         this.animales = animales;
+    }
+
+    @Override
+    public String toString() {
+        return "Voluntario{" +
+                "dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", rol=" + rol +
+                ", antiguedad=" + antiguedad +
+                ", animales=" + animales +
+                '}';
     }
 }

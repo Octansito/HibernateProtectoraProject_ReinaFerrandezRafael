@@ -1,20 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
     <session-factory>
 
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3309/mydb</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">admin</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/protectora</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">admin</property>
 
-        <property name="show_sql">false</property>
+        <!-- Dialecto -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <mapping class="org.example.entity.Adopcion"/>
+        <!-- Configurado en applicacion.properties (teoría). Empleado para gestionar una única sesión por hilo -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+
+        <!-- Generación de esquema (solo desarrollo) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Logging de SQL (para aprender / depurar) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Zona horaria consistente -->
+        <property name="hibernate.jdbc.time_zone">UTC</property>
+
+        <!-- Pool de conexiones (HikariCP) -->
+        <property name="hibernate.connection.provider_class">
+            org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+        </property>
+        <property name="hibernate.hikari.maximumPoolSize">10</property>
+
+        <!-- Entities -->
         <mapping class="org.example.entity.Animal"/>
-        <mapping class="org.example.entity.Grupo"/>
+        <mapping class="org.example.entity.Adopcion"/>
         <mapping class="org.example.entity.Voluntario"/>
-        <mapping class="org.example.entity.VoluntarioAnimal"/>
-        <mapping class="org.example.entity.VoluntarioGrupo"/>
+
+
+
 
     </session-factory>
 </hibernate-configuration>

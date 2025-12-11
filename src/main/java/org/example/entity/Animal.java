@@ -9,17 +9,25 @@ import java.util.List;
 @Table (name="animal")
 public class Animal {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_animal")
     private Long id;
 
-    @Column (nullable = false)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
-    @Column (nullable = false)
-    private String tipo;
-    @Column (nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo", nullable = false)
+    private AnimalTipo tipo;
+
+    @Column(name = "edad", nullable = false)
     private int edad;
-    @Column (nullable = false)
-    private String estado;
-    @Column (nullable = false)
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "estado", nullable = false)
+    private AnimalEstado estado;
+
+    @Column(name = "fecha_ingreso", nullable = false)
     private LocalDate fechaIngreso;
 
     // RELACIÓN N:1 --> Un animal pertenece a una adopción
@@ -37,7 +45,7 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(Long id, String nombre, String tipo, int edad, String estado, LocalDate fechaIngreso, Adopcion adopcion, List<Voluntario> voluntarios) {
+    public Animal(Long id, String nombre, AnimalTipo tipo, int edad, AnimalEstado estado, LocalDate fechaIngreso, Adopcion adopcion, List<Voluntario> voluntarios) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -64,12 +72,20 @@ public class Animal {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
+    public AnimalTipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(AnimalTipo tipo) {
         this.tipo = tipo;
+    }
+
+    public AnimalEstado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(AnimalEstado estado) {
+        this.estado = estado;
     }
 
     public int getEdad() {
@@ -80,13 +96,7 @@ public class Animal {
         this.edad = edad;
     }
 
-    public String getEstado() {
-        return estado;
-    }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 
     public LocalDate getFechaIngreso() {
         return fechaIngreso;
@@ -110,5 +120,18 @@ public class Animal {
 
     public void setVoluntarios(List<Voluntario> voluntarios) {
         this.voluntarios = voluntarios;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", tipo=" + tipo +
+                ", edad=" + edad +
+                ", estado=" + estado +
+                ", fechaIngreso=" + fechaIngreso +
+                ", adopcion=" + adopcion +
+                '}';
     }
 }

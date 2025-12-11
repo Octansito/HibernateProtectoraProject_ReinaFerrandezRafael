@@ -10,14 +10,20 @@ public class Adopcion {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_adopcion")
     private Long id;
-    @Column(nullable = false)
+
+    @Column(name = "nombre_adoptante", nullable = false)
     private String nombreAdoptante;
-    @Column (nullable = false)
+
+    @Column(name = "telefono", nullable = false)
     private String telefono;
-    @Column (nullable = false)
+
+    @Column(name = "fecha_adopcion", nullable = false)
     private LocalDate fechaAdopcion;
-    @Column (nullable = false)
+
+    @Column(name = "direccion", nullable = false)
     private String direccion;
 
 
@@ -85,5 +91,16 @@ public class Adopcion {
 
     public void setFechaAdopcion(LocalDate fechaAdopcion) {
         this.fechaAdopcion = fechaAdopcion;
+    }
+
+    @Override
+    public String toString() {
+        return "Adopcion{" +
+                "id=" + id +
+                ", nombreAdoptante='" + nombreAdoptante + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", fechaAdopcion=" + fechaAdopcion +
+                ", direccion='" + direccion +
+                '}';
     }
 }
