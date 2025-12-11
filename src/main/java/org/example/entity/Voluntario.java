@@ -1,9 +1,12 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Entidad que representa a un voluntario del refugio.
+ * Incluye sus datos personales y la relación ManyToMany con los animales que atiende.
+ */
 
 @Entity
 @Table(name="voluntario")

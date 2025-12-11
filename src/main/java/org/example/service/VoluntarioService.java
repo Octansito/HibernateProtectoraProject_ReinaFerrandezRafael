@@ -4,14 +4,17 @@ import org.example.dao.VoluntarioDAO;
 import org.example.dao.VoluntarioDaoImpl;
 import org.example.entity.Voluntario;
 import org.example.util.HibernateUtil;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import jakarta.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Servicio encargado de la lógica de negocio relacionada con los voluntarios.
+ * Gestiona transacciones y delega operaciones CRUD y consultas avanzadas al VoluntarioDAO.
+ */
 
 public class VoluntarioService{
 

@@ -4,6 +4,10 @@ import org.hibernate.Session;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+/**
+ * Interfaz genérica que define las operaciones CRUD básicas
+ * para cualquier entidad gestionada por Hibernate.
+ */
 
 public interface GenericDAO<T, ID extends Serializable> {
 

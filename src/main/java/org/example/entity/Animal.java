@@ -1,9 +1,12 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
+/**
+ * Entidad que representa un animal del refugio.
+ * Incluye su información básica, su adopción (ManyToOne) y su relación con voluntarios.
+ */
 
 @Entity
 @Table (name="animal")

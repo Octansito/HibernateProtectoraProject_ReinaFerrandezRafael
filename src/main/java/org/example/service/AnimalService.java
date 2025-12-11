@@ -5,14 +5,17 @@ import org.example.dao.AnimalDaoImpl;
 import org.example.dto.AnimalAdopcionDTO;
 import org.example.entity.Animal;
 import org.example.util.HibernateUtil;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import jakarta.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Clase responsable de gestionar animales en la base de datos.
+ * Maneja transacciones, CRUD, consultas JPQL, Criteria
+ */
 
 public class AnimalService {
 
@@ -131,7 +134,7 @@ public class AnimalService {
         }
     }
 
-    // JPQL 1 con DTO
+    //JPQL 1 con DTO
     public List<AnimalAdopcionDTO> buscarPorAdoptante(String nombre) {
         Transaction tx = null;
         try {
@@ -146,7 +149,7 @@ public class AnimalService {
         }
     }
 
-    // JPQL 2
+    //JPQL 2
     public List<Animal> animalesPorVoluntario(String dni) {
         Transaction tx = null;
         try {
@@ -161,7 +164,7 @@ public class AnimalService {
         }
     }
 
-    // Criteria 1
+    //Criteria 1
     public List<Animal> ordenarPorEdad() {
         Transaction tx = null;
         try {

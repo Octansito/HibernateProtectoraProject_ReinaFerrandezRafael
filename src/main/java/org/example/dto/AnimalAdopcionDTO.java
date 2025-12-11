@@ -1,8 +1,12 @@
 package org.example.dto;
 
 import org.example.entity.AnimalTipo;
-
 import java.time.LocalDate;
+
+/**
+ * DTO usado para consultas JPQL que combinan datos de animal y adopción.
+ */
+
 
 public class AnimalAdopcionDTO {
 

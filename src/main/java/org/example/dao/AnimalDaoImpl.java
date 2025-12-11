@@ -3,12 +3,17 @@ package org.example.dao;
 import org.example.dto.AnimalAdopcionDTO;
 import org.example.entity.Animal;
 import org.hibernate.Session;
-
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 
 import java.util.List;
+
+/**
+ * Implementación del DAO de Animal.
+ * Incluye consultas JPQL y Criteria específicas para animales.
+ */
+
 
 public class AnimalDaoImpl extends GenericDaoHibernate<Animal, Long> implements AnimalDAO {
 

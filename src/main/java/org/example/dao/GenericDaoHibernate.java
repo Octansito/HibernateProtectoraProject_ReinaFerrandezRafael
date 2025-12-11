@@ -5,6 +5,11 @@ import org.hibernate.Session;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+/**
+ * Implementación genérica de DAO basada en Hibernate.
+ * Proporciona métodos CRUD reutilizables para cualquier entidad.
+ */
+
 
 public class GenericDaoHibernate <T, ID extends Serializable>
         implements GenericDAO<T, ID>  {

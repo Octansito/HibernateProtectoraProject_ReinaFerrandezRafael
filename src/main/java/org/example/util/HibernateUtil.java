@@ -8,6 +8,9 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+/**
+ * Proporciona sesiones de Hibernate para todo el proyecto y cierra los recursos al finalizar.
+ */
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;

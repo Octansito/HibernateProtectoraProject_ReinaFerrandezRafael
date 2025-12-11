@@ -4,9 +4,13 @@ import org.example.dto.AnimalAdopcionDTO;
 import org.example.entity.Adopcion;
 import org.example.entity.Animal;
 import org.example.entity.Voluntario;
-
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Clase que centraliza las operaciones principales del sistema.
+ * Permite acceder a los servicios de Animal, Adopcion y Voluntario desde un único punto.
+ */
 
 public class GeneralService {
     private final AnimalService animalService;
@@ -19,10 +23,7 @@ public class GeneralService {
         this.voluntarioService = new VoluntarioService();
     }
 
-
     //ANIMAL SERVICE
-
-
     public void crearAnimal(Animal a) {
         animalService.save(a);
     }
@@ -51,25 +52,23 @@ public class GeneralService {
         return animalService.findById(id).isPresent();
     }
 
-    // JPQL 1 (DTO)
+    //JPQL 1 (DTO)
     public List<AnimalAdopcionDTO> animalesPorAdoptante(String nombre) {
         return animalService.buscarPorAdoptante(nombre);
     }
 
-    // JPQL 2
+    //JPQL 2
     public List<Animal> animalesPorVoluntario(String dni) {
         return animalService.animalesPorVoluntario(dni);
     }
 
-    // CRITERIA 1
+    //CRITERIA 1
     public List<Animal> animalesOrdenadosPorEdad() {
         return animalService.ordenarPorEdad();
     }
 
 
     //ADOPCION SERVICE
-
-
     public void crearAdopcion(Adopcion a) {
         adopcionService.save(a);
     }
@@ -94,19 +93,18 @@ public class GeneralService {
         return adopcionService.count();
     }
 
-    // JPQL 3
+    //JPQL 3
     public List<Adopcion> adopcionesConMasDe(int cantidad) {
         return adopcionService.adopcionesConMasDe(cantidad);
     }
 
-    // CRITERIA 2
+    //CRITERIA 2
     public List<Adopcion> adopcionesOrdenadasPorFecha() {
         return adopcionService.ordenarPorFecha();
     }
 
 
-    // VOLUNTARIO SERVICE
-
+    //VOLUNTARIO SERVICE
     public void crearVoluntario(Voluntario v) {
         voluntarioService.save(v);
     }

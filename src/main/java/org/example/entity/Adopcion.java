@@ -1,8 +1,11 @@
 package org.example.entity;
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
+/**
+ * Entidad que modela una adopción realizada en el refugio.
+ * Contiene los datos del adoptante y la lista de animales asociados a la adopción.
+ */
 
 @Entity
 @Table (name="adopcion")

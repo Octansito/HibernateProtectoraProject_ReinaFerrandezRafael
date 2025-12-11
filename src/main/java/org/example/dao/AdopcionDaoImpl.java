@@ -7,9 +7,12 @@ import org.hibernate.Session;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-
 import java.util.List;
 
+/**
+ * Implementación del DAO de Adopción.
+ * Contiene operaciones CRUD y consultas JPQL/Criteria relacionadas con adopciones.
+ */
 public class AdopcionDaoImpl extends GenericDaoHibernate<Adopcion, Long> implements AdopcionDAO {
 
     public AdopcionDaoImpl() {

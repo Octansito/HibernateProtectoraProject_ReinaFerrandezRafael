@@ -5,6 +5,10 @@ import org.example.entity.Animal;
 import org.hibernate.Session;
 
 import java.util.List;
+/**
+ * Interfaz DAO que define las operaciones de acceso a datos para los animales,
+ * incluyendo consultas personalizadas.
+ */
 
 public interface AnimalDAO extends GenericDAO<Animal, Long>{
 

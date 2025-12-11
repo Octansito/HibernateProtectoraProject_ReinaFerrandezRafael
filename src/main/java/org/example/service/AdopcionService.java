@@ -5,14 +5,18 @@ import org.example.dao.AdopcionDAO;
 import org.example.dao.AdopcionDaoImpl;
 import org.example.entity.Adopcion;
 import org.example.util.HibernateUtil;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import jakarta.persistence.PersistenceException;
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Clase que gestiona las adopciones del sistema.
+ * Controla operaciones CRUD y consultas relacionadas con animales adoptados y filtros avanzados.
+ */
+
 
 public class AdopcionService {
 
@@ -133,7 +137,7 @@ public class AdopcionService {
     }
 
 
-    // JPQL 3
+    //JPQL 3
     public List<Adopcion>adopcionesConMasDe(int cantidad){
         Transaction tx = null;
         try {
@@ -148,7 +152,7 @@ public class AdopcionService {
         }
     }
 
-    // Criteria 2
+    //Criteria 2
     public List<Adopcion> ordenarPorFecha() {
         Transaction tx = null;
         try {

@@ -12,6 +12,10 @@ import org.example.entity.VoluntarioRol;
 
 
 import java.time.LocalDate;
+/**
+ * Clase de pruebas que ejecuta todos los casos de uso del proyecto.
+ * Inserta datos de ejemplo y llama a los servicios para verificar consultas y operaciones CRUD.
+ */
 
 public class Test {
     public static void main(String[] args) {
