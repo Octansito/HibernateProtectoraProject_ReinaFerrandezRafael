@@ -69,7 +69,7 @@ public class Main {
             service.actualizarVoluntario(v2);
 
 
-            // CONSULTAS JPQL y CRITERIA
+            //CONSULTAS JPQL y CRITERIA
             System.out.println("JPQL 1: Animales por nombre adoptante");
             service.animalesPorAdoptante("Carolina").forEach(System.out::println);
 

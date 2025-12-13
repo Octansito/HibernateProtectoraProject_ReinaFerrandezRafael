@@ -21,7 +21,7 @@ public class AnimalDaoImpl extends GenericDaoHibernate<Animal, Long> implements 
         super(Animal.class);
     }
 
-    // JPQL 1: Animales por nombre del adoptante
+    //JPQL 1: Animales por nombre del adoptante
     @Override
     public List<AnimalAdopcionDTO> findAnimalByAdoptante(Session s, String nombre) {
 
@@ -32,7 +32,7 @@ public class AnimalDaoImpl extends GenericDaoHibernate<Animal, Long> implements 
                 .list();
     }
 
-    // JPQL 2: Animales atendidos por un voluntario
+    //JPQL 2: Animales atendidos por un voluntario
     @Override
     public List<Animal> findByVoluntario(Session s, String dni) {
 
@@ -43,7 +43,7 @@ public class AnimalDaoImpl extends GenericDaoHibernate<Animal, Long> implements 
                 .list();
     }
 
-    // Criteria 1: ordenar animales por edad
+    //Criteria 1: ordenar animales por edad
     @Override
     public List<Animal> findAllOrderByEdad(Session s) {
 

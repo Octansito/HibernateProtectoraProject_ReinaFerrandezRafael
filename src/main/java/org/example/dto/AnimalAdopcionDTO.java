@@ -58,4 +58,14 @@ public class AnimalAdopcionDTO {
     public void setFechaAdopcion(LocalDate fechaAdopcion) {
         this.fechaAdopcion = fechaAdopcion;
     }
+
+    @Override
+    public String toString() {
+        return "AnimalAdopcionDTO{" +
+                "nombreAnimal='" + nombreAnimal + '\'' +
+                ", tipo=" + tipo +
+                ", nombreAdoptante='" + nombreAdoptante + '\'' +
+                ", fechaAdopcion=" + fechaAdopcion +
+                '}';
+    }
 }

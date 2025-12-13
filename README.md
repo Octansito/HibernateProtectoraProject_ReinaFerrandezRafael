@@ -317,13 +317,339 @@ Creamos la relación
 Al ser relación M:M se crea una tabla intermedia en la base de datos y una clase en model.
 ![img_1.png](img_1.png)
 
+Estructuramos las subcarpetas dentro del main en (día 17/11/2025):
+![img_6.png](img_6.png)
+
+Se crearon las clases Entity (día 17/11/2025):
+![img_7.png](img_7.png)
+
+Instalación de dependencias (día 17/11/2025):
+![img_8.png](img_8.png)
+![img_9.png](img_9.png)
+
+Creación y configuración archivo hibernate.cfg.xml (día 17/11/2025):
+![img_10.png](img_10.png)
+
+Creación clase HibernateUtil (día 17/11/2025):
+![img_11.png](img_11.png)
+
+Modificación y asignación de atributos a las clases Entitys (día 17/11/2025):
+
+ - Adopción
+![img_12.png](img_12.png)
+
+ - Animal
+![img_13.png](img_13.png)
+
+ - Voluntario
+![img_14.png](img_14.png)
+
+Modificación de la relación entre Animal y Adopción (día 25/11/2025):
+
+- Inicio
+![img_15.png](img_15.png)
+
+-Final
+![img_16.png](img_16.png)
+
+Terminar de configurar clases Entitys con constructores, getters y setters (día 25/11/2025):
+
+- Adopción
+![img_17.png](img_17.png)
+
+-Animal
+![img_18.png](img_18.png)
+
+-Voluntario
+![img_19.png](img_19.png)
+
+Creación de clases DAO, DTO y Generics con los requerimientos que se solicitaban antes de la entrega del proyecto con los Criteria y los JPQL (día 02/12/2025)
+
+-Creación de los DAO Entitys y Generics
+![img_20.png](img_20.png)
+![img_21.png](img_21.png)
+![img_22.png](img_22.png)
+![img_23.png](img_23.png)
+![img_24.png](img_24.png)
+![img_25.png](img_25.png)
+![img_26.png](img_26.png)
+![img_27.png](img_27.png)
+![img_28.png](img_28.png)
+
+-Creación de la clase DTO
+![img_29.png](img_29.png)
+![img_30.png](img_30.png)
+
+
+-Configuración de clases Service (día 04/12/2025):
+
+![img_35.png](img_35.png)
+
+-AdopcionService
+![img_31.png](img_31.png)
+
+-AnimalService
+![img_32.png](img_32.png)
+
+-VoluntarioService
+![img_33.png](img_33.png)
 
 
 
 
+-Modificación dependencias y propertys, creación clases enum con los tipos, 
+modificación clase Adopcion, Animal y Voluntario, eliminación clases VoluntarioAnimal.java y VoluntarioGrupo.java,
+creación de GeneralSercives para llamar al resto de Services, creación clase Test (día 11/12/2025):
 
-¡
+-Creación de las clases enum de las entitys:
+    
+    AnimalEstado
+![img_36.png](img_36.png)
+    
+    AnimalTipo
+![img_37.png](img_37.png)
+    
+    VoluntarioRol
+![img_38.png](img_38.png)
 
+Por ello, se procedión con al modificación de las clases Entitys para usar las clases Enum según como se explicaba en la teoría
+
+-Animal
+![img_39.png](img_39.png)
+![img_40.png](img_40.png)
+
+-Voluntario
+![img_41.png](img_41.png)
+![img_42.png](img_42.png)
+
+
+-Creación de la clase GeneralService para emplear el resto de clases Services:
+![img_34.png](img_34.png)
+
+- Creación clase Test:
+
+![img_43.png](img_43.png)
+![img_44.png](img_44.png)
+![img_45.png](img_45.png)
+![img_46.png](img_46.png)
+
+Hubo bastantes problemas de configuración del Hibernate que impedían la conexión con la base de datos y, por consiguiente, la alteración de cualquier dato que se arregló, 
+tras muchas pruebas, modificando las dependencias.
+![img_48.png](img_48.png)
+![img_47.png](img_47.png)
+
+También se modificó el estado de la clase AnimalEstado porque me daba problemas. Pasó de ser de En_Refugio a Refugio
+
+
+Pruebas:
+
+- Información Inicio de la BD. Se realizaón varios inserts y consutlas dentro de Workbench para tener información preexistente y mostrarla(día 12/11/2025):
+
+
+
+INSERT INTO adopcion (nombre_adoptante, telefono, fecha_adopcion, direccion) VALUES
+  ('Juan Pérez','600000001', '2025-10-30', 'C/ Olivo 12, Murcia'),
+  ('María López','600000002', '2024-08-20', 'Av. Gran Vía 45, Alicante'),
+  ('Carlos Hernández','600000003', '2021-05-10', 'C/ Mayor 8, Valencia');
+
+INSERT INTO animal (nombre, tipo, edad, estado, fecha_ingreso, id_adopcion) VALUES
+('Elena',  'Perro', 20, 'Refugio', '2025-10-28', NULL),
+('Puskas', 'Gato',   6, 'Adoptado',   '2024-06-11', 1),
+('Rafa',   'Perro', 12, 'Refugio', '2023-11-16', NULL),
+('Mika',   'Gato',   3, 'Adoptado',   '2021-04-05', 2),
+('Golfo',   'Perro',   7, 'Adoptado',   '2021-04-05', 2);
+
+SELECT ad.id_adopcion, an.nombre, an.tipo, ad.nombre_adoptante,ad.fecha_adopcion FROM adopcion ad JOIN animal an ON an.id_adopcion = ad.id_adopcionWHERE 
+an.tipo = 'Gato' ORDER BY ad.fecha_adopcion ASC;
+![img_49.png](img_49.png)
+
+SELECT an.estado, COUNT(*) AS total_estado FROM animal an LEFT JOIN adopcion ad ON an.id_adopcion = ad.id_adopcion WHERE an.estado = 'Refugio'GROUP BY an.estado;
+![img_50.png](img_50.png)
+
+select * from adopcion;
+![img_51.png](img_51.png)
+
+select * from animal;
+![img_52.png](img_52.png)
+
+select * from voluntario;
+![img_53.png](img_53.png)
+
+Tras el empleo de Test:
+
+-Salida por Consola:
+![img_54.png](img_54.png)
+![img_55.png](img_55.png)
+
+JPQL1
+![img_56.png](img_56.png)
+
+JPQL2
+![img_57.png](img_57.png)
+
+JPQL3
+![img_58.png](img_58.png)
+
+CRITERIA 1
+![img_59.png](img_59.png)
+![img_60.png](img_60.png)
+
+
+CRITERIA2
+![img_61.png](img_61.png)
+
+
+- Información final tras la comprobación de alteraciones en la BD de Workbench:
+
+![img_62.png](img_62.png)
+
+![img_63.png](img_63.png)
+
+![img_64.png](img_64.png)
+
+Para terminar el proyecto realicé la creación de la clase Main con algunas pruebas más los comentarios JavaDOC (DÍA 12/12/2025)
+![img_65.png](img_65.png)
+![img_66.png](img_66.png)
+
+
+
+Esquema de la base de datos final del proyecto Hibernate de la protectora
+![img_5.png](img_5.png)
+
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema protectora
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema protectora
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `protectora` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `protectora` ;
+
+-- -----------------------------------------------------
+-- Table `protectora`.`adopcion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `protectora`.`adopcion` (
+`id_adopcion` INT NOT NULL AUTO_INCREMENT,
+`nombre_adoptante` VARCHAR(255) NOT NULL,
+`telefono` VARCHAR(255) NOT NULL,
+`fecha_adopcion` DATE NOT NULL,
+`direccion` VARCHAR(255) NOT NULL,
+PRIMARY KEY (`id_adopcion`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `protectora`.`animal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `protectora`.`animal` (
+`id_animal` INT NOT NULL AUTO_INCREMENT,
+`nombre` VARCHAR(255) NOT NULL,
+`tipo` ENUM('Perro', 'Gato') NOT NULL,
+`edad` INT NOT NULL,
+`estado` ENUM('Refugio', 'Adoptado') NOT NULL,
+`fecha_ingreso` DATE NOT NULL,
+`id_adopcion` INT NULL DEFAULT NULL,
+PRIMARY KEY (`id_animal`),
+INDEX `id_adopcion` (`id_adopcion` ASC) VISIBLE,
+CONSTRAINT `animal_ibfk_1`
+FOREIGN KEY (`id_adopcion`)
+REFERENCES `protectora`.`adopcion` (`id_adopcion`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `protectora`.`voluntario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `protectora`.`voluntario` (
+`dni` CHAR(9) NOT NULL,
+`nombre` VARCHAR(255) NOT NULL,
+`telefono` VARCHAR(255) NOT NULL,
+`rol` ENUM('Responsable', 'Voluntario') NOT NULL,
+`antiguedad` INT NOT NULL,
+PRIMARY KEY (`dni`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `protectora`.`grupo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `protectora`.`grupo` (
+`id_grupo` INT NOT NULL AUTO_INCREMENT,
+`dia_semana` ENUM('Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo') NOT NULL,
+`turno` ENUM('Mañana', 'Tarde') NOT NULL,
+`responsable` CHAR(9) NULL DEFAULT NULL,
+PRIMARY KEY (`id_grupo`),
+INDEX `responsable` (`responsable` ASC) VISIBLE,
+CONSTRAINT `grupo_ibfk_1`
+FOREIGN KEY (`responsable`)
+REFERENCES `protectora`.`voluntario` (`dni`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `protectora`.`voluntario_animal`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `protectora`.`voluntario_animal` (
+`dni_voluntario` CHAR(9) NOT NULL,
+`id_animal` INT NOT NULL,
+PRIMARY KEY (`dni_voluntario`, `id_animal`),
+INDEX `id_animal` (`id_animal` ASC) VISIBLE,
+CONSTRAINT `voluntario_animal_ibfk_1`
+FOREIGN KEY (`dni_voluntario`)
+REFERENCES `protectora`.`voluntario` (`dni`),
+CONSTRAINT `voluntario_animal_ibfk_2`
+FOREIGN KEY (`id_animal`)
+REFERENCES `protectora`.`animal` (`id_animal`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `protectora`.`voluntario_grupo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `protectora`.`voluntario_grupo` (
+`dni_voluntario` CHAR(9) NOT NULL,
+`id_grupo` INT NOT NULL,
+PRIMARY KEY (`dni_voluntario`, `id_grupo`),
+INDEX `id_grupo` (`id_grupo` ASC) VISIBLE,
+CONSTRAINT `voluntario_grupo_ibfk_1`
+FOREIGN KEY (`dni_voluntario`)
+REFERENCES `protectora`.`voluntario` (`dni`),
+CONSTRAINT `voluntario_grupo_ibfk_2`
+FOREIGN KEY (`id_grupo`)
+REFERENCES `protectora`.`grupo` (`id_grupo`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+Enlace Github: https://github.com/Octansito/HibernateProtectoraProject_ReinaFerrandezRafael.git
 
 
 

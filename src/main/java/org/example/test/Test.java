@@ -114,19 +114,19 @@ public class Test {
                     .forEach(System.out::println);
 
 
-            //CRITERIA 1 → ordenar por edad
+            //CRITERIA 1 --> ordenar por edad
             System.out.println("Animales ordenados por edad");
             service.animalesOrdenadosPorEdad()
                     .forEach(System.out::println);
 
 
-            //CRITERIA 2 → ordenar adopciones por fecha
+            //CRITERIA 2 --> ordenar adopciones por fecha
             System.out.println("Adopciones ordenadas por fecha");
             service.adopcionesOrdenadasPorFecha()
                     .forEach(System.out::println);
 
 
-            // 10. PRUEBAS GENERIC DAO (EXTRA)
+            // 10.PRUEBAS GENERIC DAO (EXTRA)
             System.out.println("Total animales en BD: " + service.countAnimales());
             System.out.println("¿Existe animal con ID 1? " + service.existeAnimal(1L));
 
